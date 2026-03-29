@@ -49,22 +49,17 @@
             gap: 16px;
         }
         
-        .logo-bars {
-            display: flex;
-            align-items: flex-end;
-            gap: 4px;
+        .logo-img {
+            height: 48px;
+            width: auto;
+        }
+        
+        .logo-divider {
+            width: 1px;
             height: 36px;
+            background: var(--border);
+            margin: 0 8px;
         }
-        
-        .logo-bar {
-            width: 8px;
-            background: var(--accent);
-            transform: skewX(-12deg);
-        }
-        
-        .logo-bar:nth-child(1) { height: 50%; }
-        .logo-bar:nth-child(2) { height: 75%; }
-        .logo-bar:nth-child(3) { height: 100%; }
         
         h1 {
             font-family: 'Cinzel', serif;
@@ -258,11 +253,8 @@
     <div class="container">
         <header>
             <div class="logo">
-                <div class="logo-bars">
-                    <div class="logo-bar"></div>
-                    <div class="logo-bar"></div>
-                    <div class="logo-bar"></div>
-                </div>
+                <img src="logo.jpg" alt="1-800-NO-FAULT" class="logo-img">
+                <div class="logo-divider"></div>
                 <h1><span>Pulse</span></h1>
             </div>
             <div class="header-right">
