@@ -32,7 +32,7 @@
             padding: 24px;
         }
         
-        .container { max-width: 1400px; margin: 0 auto; }
+        .container { max-width: 1600px; margin: 0 auto; }
         
         header {
             display: flex;
@@ -104,91 +104,92 @@
             color: var(--bg-primary);
         }
         
-        .stats-row {
+        .team-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
             margin-bottom: 40px;
         }
         
-        .stat-card {
+        .team-section {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 32px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-        }
-        
-        .stat-card.in::before { background: var(--green); }
-        .stat-card.break::before { background: var(--yellow); }
-        .stat-card.out::before { background: var(--red); }
-        
-        .stat-number { 
-            font-family: 'Cinzel', serif;
-            font-size: 64px; 
-            font-weight: 700;
-            line-height: 1;
-        }
-        
-        .stat-card.in .stat-number { color: var(--green); }
-        .stat-card.break .stat-number { color: var(--yellow); }
-        .stat-card.out .stat-number { color: var(--red); }
-        
-        .stat-label { 
-            color: var(--text-secondary); 
-            margin-top: 12px; 
-            text-transform: uppercase; 
-            font-size: 12px; 
-            letter-spacing: 2px;
-            font-weight: 600;
-        }
-        
-        .sections {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-        
-        .section {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 24px;
         }
         
-        .section h2 {
+        .team-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .team-title {
             font-family: 'Cinzel', serif;
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+        
+        .team-stats {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .mini-stat {
             display: flex;
             align-items: center;
-            gap: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            gap: 6px;
+            font-size: 14px;
             font-weight: 600;
         }
         
-        .section h2 .dot {
+        .mini-stat .dot {
             width: 10px;
             height: 10px;
             border-radius: 50%;
         }
         
-        .section.in-section h2 .dot { background: var(--green); box-shadow: 0 0 12px var(--green); }
-        .section.break-section h2 .dot { background: var(--yellow); box-shadow: 0 0 12px var(--yellow); }
-        .section.out-section h2 .dot { background: var(--red); box-shadow: 0 0 12px var(--red); }
+        .mini-stat.in .dot { background: var(--green); }
+        .mini-stat.break .dot { background: var(--yellow); }
+        .mini-stat.out .dot { background: var(--red); }
+        
+        .mini-stat.in { color: var(--green); }
+        .mini-stat.break { color: var(--yellow); }
+        .mini-stat.out { color: var(--red); }
+        
+        .status-columns {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .status-column h3 {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .status-column h3 .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        
+        .status-column.in h3 .dot { background: var(--green); }
+        .status-column.break h3 .dot { background: var(--yellow); }
+        .status-column.out h3 .dot { background: var(--red); }
         
         .employee-list { list-style: none; }
         
@@ -196,7 +197,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 14px 0;
+            padding: 10px 0;
             border-bottom: 1px solid var(--border);
         }
         
@@ -204,20 +205,20 @@
         
         .employee-name { 
             font-weight: 500;
-            font-size: 14px;
+            font-size: 13px;
         }
         
         .employee-time { 
             color: var(--text-secondary); 
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 500;
         }
         
         .empty-state {
             color: var(--text-secondary);
             font-style: italic;
-            padding: 20px 0;
-            font-size: 13px;
+            padding: 12px 0;
+            font-size: 12px;
         }
         
         .powered-by {
@@ -235,16 +236,17 @@
             color: var(--accent);
         }
         
-        @media (max-width: 900px) {
-            .stats-row { grid-template-columns: repeat(3, 1fr); gap: 12px; }
-            .stat-card { padding: 20px; }
-            .stat-number { font-size: 42px; }
-            .sections { grid-template-columns: 1fr; }
+        @media (max-width: 1100px) {
+            .team-container { grid-template-columns: 1fr; }
+        }
+        
+        @media (max-width: 700px) {
+            .status-columns { grid-template-columns: 1fr; }
+            .team-header { flex-direction: column; gap: 12px; align-items: flex-start; }
         }
         
         @media (max-width: 600px) {
             header { flex-direction: column; gap: 20px; text-align: center; }
-            .stats-row { grid-template-columns: 1fr; }
             h1 { font-size: 22px; }
         }
     </style>
@@ -263,39 +265,57 @@
             </div>
         </header>
         
-        <div class="stats-row">
-            <div class="stat-card in">
-                <div class="stat-number" id="countIn">-</div>
-                <div class="stat-label">Clocked In</div>
+        <div class="team-container">
+            <!-- Intake Team -->
+            <div class="team-section" id="intakeSection">
+                <div class="team-header">
+                    <div class="team-title">Intake</div>
+                    <div class="team-stats">
+                        <div class="mini-stat in"><span class="dot"></span><span id="intakeIn">0</span></div>
+                        <div class="mini-stat break"><span class="dot"></span><span id="intakeBreak">0</span></div>
+                        <div class="mini-stat out"><span class="dot"></span><span id="intakeOut">0</span></div>
+                    </div>
+                </div>
+                <div class="status-columns">
+                    <div class="status-column in">
+                        <h3><span class="dot"></span> Clocked In</h3>
+                        <ul class="employee-list" id="intakeListIn"><li class="empty-state">Loading...</li></ul>
+                    </div>
+                    <div class="status-column break">
+                        <h3><span class="dot"></span> On Break</h3>
+                        <ul class="employee-list" id="intakeListBreak"><li class="empty-state">Loading...</li></ul>
+                    </div>
+                    <div class="status-column out">
+                        <h3><span class="dot"></span> Clocked Out</h3>
+                        <ul class="employee-list" id="intakeListOut"><li class="empty-state">Loading...</li></ul>
+                    </div>
+                </div>
             </div>
-            <div class="stat-card break">
-                <div class="stat-number" id="countBreak">-</div>
-                <div class="stat-label">On Break</div>
-            </div>
-            <div class="stat-card out">
-                <div class="stat-number" id="countOut">-</div>
-                <div class="stat-label">Clocked Out</div>
-            </div>
-        </div>
-        
-        <div class="sections">
-            <div class="section in-section">
-                <h2><span class="dot"></span> Clocked In</h2>
-                <ul class="employee-list" id="listIn">
-                    <li class="empty-state">Loading...</li>
-                </ul>
-            </div>
-            <div class="section break-section">
-                <h2><span class="dot"></span> On Break</h2>
-                <ul class="employee-list" id="listBreak">
-                    <li class="empty-state">Loading...</li>
-                </ul>
-            </div>
-            <div class="section out-section">
-                <h2><span class="dot"></span> Clocked Out</h2>
-                <ul class="employee-list" id="listOut">
-                    <li class="empty-state">Loading...</li>
-                </ul>
+            
+            <!-- Retention Team -->
+            <div class="team-section" id="retentionSection">
+                <div class="team-header">
+                    <div class="team-title">Retention / Audit</div>
+                    <div class="team-stats">
+                        <div class="mini-stat in"><span class="dot"></span><span id="retentionIn">0</span></div>
+                        <div class="mini-stat break"><span class="dot"></span><span id="retentionBreak">0</span></div>
+                        <div class="mini-stat out"><span class="dot"></span><span id="retentionOut">0</span></div>
+                    </div>
+                </div>
+                <div class="status-columns">
+                    <div class="status-column in">
+                        <h3><span class="dot"></span> Clocked In</h3>
+                        <ul class="employee-list" id="retentionListIn"><li class="empty-state">Loading...</li></ul>
+                    </div>
+                    <div class="status-column break">
+                        <h3><span class="dot"></span> On Break</h3>
+                        <ul class="employee-list" id="retentionListBreak"><li class="empty-state">Loading...</li></ul>
+                    </div>
+                    <div class="status-column out">
+                        <h3><span class="dot"></span> Clocked Out</h3>
+                        <ul class="employee-list" id="retentionListOut"><li class="empty-state">Loading...</li></ul>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -321,20 +341,37 @@
                 );
                 const data = await response.json();
                 
-                const byStatus = { IN: [], BREAK: [], OUT: [] };
+                // Separate by team
+                const teams = {
+                    intake: { IN: [], BREAK: [], OUT: [] },
+                    retention: { IN: [], BREAK: [], OUT: [] }
+                };
+                
                 data.forEach(emp => {
-                    if (byStatus[emp.status]) {
-                        byStatus[emp.status].push(emp);
+                    const team = emp.team || 'retention';
+                    if (teams[team] && teams[team][emp.status]) {
+                        teams[team][emp.status].push(emp);
                     }
                 });
                 
-                document.getElementById('countIn').textContent = byStatus.IN.length;
-                document.getElementById('countBreak').textContent = byStatus.BREAK.length;
-                document.getElementById('countOut').textContent = byStatus.OUT.length;
+                // Update intake stats
+                document.getElementById('intakeIn').textContent = teams.intake.IN.length;
+                document.getElementById('intakeBreak').textContent = teams.intake.BREAK.length;
+                document.getElementById('intakeOut').textContent = teams.intake.OUT.length;
                 
-                updateList('listIn', byStatus.IN);
-                updateList('listBreak', byStatus.BREAK);
-                updateList('listOut', byStatus.OUT);
+                // Update retention stats
+                document.getElementById('retentionIn').textContent = teams.retention.IN.length;
+                document.getElementById('retentionBreak').textContent = teams.retention.BREAK.length;
+                document.getElementById('retentionOut').textContent = teams.retention.OUT.length;
+                
+                // Update lists
+                updateList('intakeListIn', teams.intake.IN);
+                updateList('intakeListBreak', teams.intake.BREAK);
+                updateList('intakeListOut', teams.intake.OUT);
+                
+                updateList('retentionListIn', teams.retention.IN);
+                updateList('retentionListBreak', teams.retention.BREAK);
+                updateList('retentionListOut', teams.retention.OUT);
                 
                 document.getElementById('lastUpdate').textContent = new Date().toLocaleTimeString('en-US', {
                     hour: 'numeric',
@@ -367,7 +404,7 @@
                     return `
                         <li class="employee">
                             <span class="employee-name">${emp.display_name || emp.slack_username || 'Unknown'}</span>
-                            <span class="employee-time">since ${time}</span>
+                            <span class="employee-time">${time}</span>
                         </li>
                     `;
                 })
